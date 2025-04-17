@@ -1,0 +1,49 @@
+ID,Country,Normalized_Country,Continent,Latitude,Longitude,Aggl_cluster,Types_ATU
+0,Allemagne (Grimm),Germany,Europe,51.1638175,10.4478313,Gold,510 A
+1,Géorgie,Georgia,Europe,32.3293809,-83.1137366,Gold,511 + 480 + 510 A
+2,Vietnam,Vietnam,Asie,15.9266657,107.9650855,Gold,510 A + 403 B
+3,Russie,Russia,,64.6863136,97.7453061,Gold,510 A + 403 B
+4,France (alsace),"Grand Est, France",Europe,48.4845157,6.113035,Gold,327 + 511
+5,Laponie,"Lapland, Finland",Europe,67.69291045,26.728214183162986,Gold,510 A
+6,Islande,Iceland,Europe,64.9841821,-18.1009013,Gold,511 + 510 A
+7,Italie,Italy,Europe,42.6384261,12.679297,Gold,510 A
+8,Tibet,"Tibet, China",Asie,31.669202499999997,87.47322500528882,Gold,510 A + 403 B
+9,France (Pyrenees),"Occitanie, France",Europe,43.6487851,2.3435684,Purple,510 A
+10,Acadie,"Nova Scotia, Canada",Amérique,45.1960403,-63.1653789,Purple,480 + 510 A
+11,Islande,Iceland,Europe,64.98444381632419,-18.09990701067051,Gold,510 A + 403 B
+12,Italie (Sardaigne),"Sardinia, Italy",Europe,40.0912813,9.0305773,Gold,511 + 510 A
+13,Canada (Algonquin),"Algonquin Provincial Park, Ontario, Canada",Amérique,45.65713555,-78.49953864045284,Gold,510 A
+14,Canada (Nouveau-Brunswick),"New Brunswick, Canada",Amérique,46.500283,-66.750183,Blue,510 A
+15,Italie (I. Calvino),Italie (I. Calvino),Europe,44.5866205901932,11.423434150597357,Gold,510 A
+16,Indiens Zuñi,"Zuni Pueblo, New Mexico, USA",Amérique,35.0693961,-108.84939,Gold,510 A
+17,Grèce,Greece,Europe,38.9953683,21.9927132,Gold,480 + 510 A
+18,France (Basse-Bretagne),France (Basse-Bretagne),Europe,47.5436072,0.317965,Purple,510 A + 403 B
+19,Zaïre (Congo),Democratic Republic of the Congo,Afrique,-2.9814344,23.8222636,Purple,510 A
+20,France (Corse),"Corsica, France",Europe,42.188089649999995,9.073413771427695,Purple,510 A
+21,Grèce,Greece,Europe,38.99563001632419,21.99370748932949,Gold,510 A
+22,France (Corse),"Corsica, France",Europe,42.188351366324184,9.074408060757186,Purple,480 + 510 A
+23,"France (Nivernais, Morvan)","Bourgogne-Franche-Comté, France",Europe,47.118711,4.9691044,Gold,511 + 480 + 510 A
+24,Québec,"Quebec, Canada",Amérique,52.4760892,-71.8258668,Purple,510 A
+25,Égypte,Egypt,Afrique,26.2540493,29.2675469,Gold,510 A
+26,France (poitou),France (poitou),Europe,45.4039367,0.3756199,Purple,510 A
+27,La Mauricie,"Mauricie, Quebec, Canada",Amérique,47.57124705,-73.20309134761297,Purple,510 A
+28,Angleterre (C. Dickens),"England, United Kingdom",Europe,52.5310214,-1.2649062,Gold,510 A
+29,Chine,China,Asie,35.0000663,104.999955,Gold,510 A
+30,Grèce,Greece,Europe,38.995978390199234,21.994686562886645,Gold,510 A
+31,Italie,Italy,Europe,42.638687816324186,12.68029128932949,Gold,510 A
+32,Espagne,Spain,Europe,39.3260685,-4.8379791,Gold,480 + 510A + 403A
+33,Italie,Italy,Europe,42.63903619019923,12.681270362886641,Gold,510 B
+34,Grèce,Greece,Europe,38.99641250953776,21.995644758890993,Gold,511 + 510 A + 403 B
+35,Kabylie,"Kabylie, Algeria",Afrique,36.2773442,4.703196293155502,Gold,511 + 403 B
+36,France (Haute-Bretagne),France (Haute-Bretagne),Europe,47.904700500000004,-1.917241370789751,Gold,511 B + 510 B
+37,France (Loire),France (Loire),Europe,47.8864944,1.9099659,Purple,480 + 510 A
+38,Maroc,Morocco,Afrique,28.3347722,-10.371337908392647,Gold,510 A
+39,Japon,Japan,Asie,36.5748441,139.2394179,Purple,510A
+40,Allemagne Grimm,Allemagne Grimm,Europe,48.2640814,12.884868532866667,Gold,510A
+41,Missouri,"Missouri, USA",Amérique,38.7604815,-92.5617875,Blue,510A
+42,Danemark,Denmark,Europe,55.670249,10.3333283,Gold,510A
+43,Bas-Poitou,"Poitou, France",Europe,45.4039367,0.3756199,Blue,510A
+44,Guadeloupe,"Guadeloupe, France",Amérique,16.2528827,-61.5686855,Gold,510A
+45,France Albert,"Albert, Hauts-de-France, France",Europe,50.0018022,2.6509223,Purple,510A
+46,Allemagne Grimm,Allemagne Grimm,Europe,48.26434311632419,12.885862822196158,Gold,511
+47,La Mauricie,"Mauricie, Quebec, Canada",Amérique,47.571508766324186,-73.20209705828347,Blue,510A

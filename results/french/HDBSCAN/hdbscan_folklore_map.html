@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_69885976b5a1ade2ee615be47e7466b8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed;
+            bottom: 50px; right: 50px;
+            border:2px solid grey; z-index:9999;
+            background-color:white;
+            padding: 10px;
+            font-size: 14px;">
+&nbsp; <b>HDBSCAN Clusters</b> <br>
+&nbsp; <i class="fa fa-circle" style="color:#009E73"></i>&nbsp; Green <br>&nbsp; <i class="fa fa-circle" style="color:#CC79A7"></i>&nbsp; Purple <br>&nbsp; <i class="fa fa-circle" style="color:#E69F00"></i>&nbsp; Orange <br>&nbsp; <i class="fa fa-circle" style="color:#999999"></i>&nbsp; Noise <br>&nbsp; <i class="fa fa-circle" style="color:#0072B2"></i>&nbsp; Blue <br></div>
+    
+            <div class="folium-map" id="map_69885976b5a1ade2ee615be47e7466b8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_69885976b5a1ade2ee615be47e7466b8 = L.map(
+                "map_69885976b5a1ade2ee615be47e7466b8",
+                {
+                    center: [30.0, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9ef7d6cc046325dc6d58a9a300dda1be = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9ef7d6cc046325dc6d58a9a300dda1be.addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+            var circle_marker_8477e817f1315e65c40d7cb5d38f2489 = L.circleMarker(
+                [51.1638175, 10.4478313],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_d1edf0d519eae98626b87c2be2490bbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d789bf12de4d8a7b4c17fef26fdcebeb = $(`<div id="html_d789bf12de4d8a7b4c17fef26fdcebeb" style="width: 100.0%; height: 100.0%;">ID: 0<br>Country: Allemagne (Grimm)<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_d1edf0d519eae98626b87c2be2490bbd.setContent(html_d789bf12de4d8a7b4c17fef26fdcebeb);
+            
+        
+
+        circle_marker_8477e817f1315e65c40d7cb5d38f2489.bindPopup(popup_d1edf0d519eae98626b87c2be2490bbd)
+        ;
+
+        
+    
+    
+            var circle_marker_aec8374d755642171f34b873ab8e9c50 = L.circleMarker(
+                [32.3293809, -83.1137366],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_22b339acc9285141a9e59ec0120ac409 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_010944ef09b7b4e4ee52b56babc1f22a = $(`<div id="html_010944ef09b7b4e4ee52b56babc1f22a" style="width: 100.0%; height: 100.0%;">ID: 1<br>Country: Géorgie<br>Continent: Europe<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 480 + 510 A</div>`)[0];
+                popup_22b339acc9285141a9e59ec0120ac409.setContent(html_010944ef09b7b4e4ee52b56babc1f22a);
+            
+        
+
+        circle_marker_aec8374d755642171f34b873ab8e9c50.bindPopup(popup_22b339acc9285141a9e59ec0120ac409)
+        ;
+
+        
+    
+    
+            var circle_marker_52109aa87889ae5760fa986695f152d8 = L.circleMarker(
+                [15.9266657, 107.9650855],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_184e66e11deccdb85a5112ef9c223fdb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ace0317108208579f84eaa1141ec378f = $(`<div id="html_ace0317108208579f84eaa1141ec378f" style="width: 100.0%; height: 100.0%;">ID: 2<br>Country: Vietnam<br>Continent: Asie<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A + 403 B</div>`)[0];
+                popup_184e66e11deccdb85a5112ef9c223fdb.setContent(html_ace0317108208579f84eaa1141ec378f);
+            
+        
+
+        circle_marker_52109aa87889ae5760fa986695f152d8.bindPopup(popup_184e66e11deccdb85a5112ef9c223fdb)
+        ;
+
+        
+    
+    
+            var circle_marker_f932468085a087b8764b01beb809b943 = L.circleMarker(
+                [64.6863136, 97.7453061],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_b9786a3986d0febae6555f42b1f81cd8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2bea57fc6179f708099c80fef30cff4f = $(`<div id="html_2bea57fc6179f708099c80fef30cff4f" style="width: 100.0%; height: 100.0%;">ID: 3<br>Country: Russie<br>Continent: nan<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 510 A + 403 B</div>`)[0];
+                popup_b9786a3986d0febae6555f42b1f81cd8.setContent(html_2bea57fc6179f708099c80fef30cff4f);
+            
+        
+
+        circle_marker_f932468085a087b8764b01beb809b943.bindPopup(popup_b9786a3986d0febae6555f42b1f81cd8)
+        ;
+
+        
+    
+    
+            var circle_marker_61e4e665f5ee85ce51186ee3a2dc797c = L.circleMarker(
+                [48.4845157, 6.113035],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_806b3282238673335229cb5405b2a756 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e0046296ebc35f59397b821afffc2ca = $(`<div id="html_5e0046296ebc35f59397b821afffc2ca" style="width: 100.0%; height: 100.0%;">ID: 4<br>Country: France (alsace)<br>Continent: Europe<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 327 + 511</div>`)[0];
+                popup_806b3282238673335229cb5405b2a756.setContent(html_5e0046296ebc35f59397b821afffc2ca);
+            
+        
+
+        circle_marker_61e4e665f5ee85ce51186ee3a2dc797c.bindPopup(popup_806b3282238673335229cb5405b2a756)
+        ;
+
+        
+    
+    
+            var circle_marker_e6f78d86eabca607addceac1656b2b29 = L.circleMarker(
+                [67.69291045, 26.728214183162986],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_8c269458ca4d0dc01093c05956e7f264 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_273904c172bfac044b1f1d0ddc6d505b = $(`<div id="html_273904c172bfac044b1f1d0ddc6d505b" style="width: 100.0%; height: 100.0%;">ID: 5<br>Country: Laponie<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_8c269458ca4d0dc01093c05956e7f264.setContent(html_273904c172bfac044b1f1d0ddc6d505b);
+            
+        
+
+        circle_marker_e6f78d86eabca607addceac1656b2b29.bindPopup(popup_8c269458ca4d0dc01093c05956e7f264)
+        ;
+
+        
+    
+    
+            var circle_marker_48b7d4dd95f95065938fdac28f5c819a = L.circleMarker(
+                [64.9841821, -18.1009013],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_8be3001a03f1fdacc83dd3cc304ccb31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1aaf1d762611fcbcae5797ef4bab4878 = $(`<div id="html_1aaf1d762611fcbcae5797ef4bab4878" style="width: 100.0%; height: 100.0%;">ID: 6<br>Country: Islande<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 510 A</div>`)[0];
+                popup_8be3001a03f1fdacc83dd3cc304ccb31.setContent(html_1aaf1d762611fcbcae5797ef4bab4878);
+            
+        
+
+        circle_marker_48b7d4dd95f95065938fdac28f5c819a.bindPopup(popup_8be3001a03f1fdacc83dd3cc304ccb31)
+        ;
+
+        
+    
+    
+            var circle_marker_e27f2cf35ef9f6aa6cf1555cac4852e8 = L.circleMarker(
+                [42.6384261, 12.679297],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_ae30ffaa8f82f60dbc6cfcd6e1e4d1a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ca20ecaf40916d768e145d440b0d921 = $(`<div id="html_2ca20ecaf40916d768e145d440b0d921" style="width: 100.0%; height: 100.0%;">ID: 7<br>Country: Italie<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_ae30ffaa8f82f60dbc6cfcd6e1e4d1a5.setContent(html_2ca20ecaf40916d768e145d440b0d921);
+            
+        
+
+        circle_marker_e27f2cf35ef9f6aa6cf1555cac4852e8.bindPopup(popup_ae30ffaa8f82f60dbc6cfcd6e1e4d1a5)
+        ;
+
+        
+    
+    
+            var circle_marker_794b5089a20c630f33e506a17359e449 = L.circleMarker(
+                [31.669202499999997, 87.47322500528882],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_6321d8eea6ada86e91390e84634bcaf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c02e375b295356982b09e5110b3c2e3 = $(`<div id="html_8c02e375b295356982b09e5110b3c2e3" style="width: 100.0%; height: 100.0%;">ID: 8<br>Country: Tibet<br>Continent: Asie<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 510 A + 403 B</div>`)[0];
+                popup_6321d8eea6ada86e91390e84634bcaf3.setContent(html_8c02e375b295356982b09e5110b3c2e3);
+            
+        
+
+        circle_marker_794b5089a20c630f33e506a17359e449.bindPopup(popup_6321d8eea6ada86e91390e84634bcaf3)
+        ;
+
+        
+    
+    
+            var circle_marker_52fb2c5b4886d25cc031209fdb544134 = L.circleMarker(
+                [43.6487851, 2.3435684],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_3d9fe9bbddb2de661dcab8f0c5151499 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b2e5840ada2df50e36da2238e4b4659 = $(`<div id="html_2b2e5840ada2df50e36da2238e4b4659" style="width: 100.0%; height: 100.0%;">ID: 9<br>Country: France (Pyrenees)<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_3d9fe9bbddb2de661dcab8f0c5151499.setContent(html_2b2e5840ada2df50e36da2238e4b4659);
+            
+        
+
+        circle_marker_52fb2c5b4886d25cc031209fdb544134.bindPopup(popup_3d9fe9bbddb2de661dcab8f0c5151499)
+        ;
+
+        
+    
+    
+            var circle_marker_9a51c5ecd5bffdd30b31f22e5583d572 = L.circleMarker(
+                [45.1960403, -63.1653789],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_1414daba6229f4321abaf588e8b61a76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74d4829283552e1d0e86529983c3b71a = $(`<div id="html_74d4829283552e1d0e86529983c3b71a" style="width: 100.0%; height: 100.0%;">ID: 10<br>Country: Acadie<br>Continent: Amérique<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Purple<br>ATU Types: 480 + 510 A</div>`)[0];
+                popup_1414daba6229f4321abaf588e8b61a76.setContent(html_74d4829283552e1d0e86529983c3b71a);
+            
+        
+
+        circle_marker_9a51c5ecd5bffdd30b31f22e5583d572.bindPopup(popup_1414daba6229f4321abaf588e8b61a76)
+        ;
+
+        
+    
+    
+            var circle_marker_8597d81c0ad8f6e191d213c8711a546b = L.circleMarker(
+                [64.98444381632419, -18.09990701067051],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_12629468cfd0c3ef54a2056ad53bc219 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65dfdcc0de800c409f8c205451b29e2c = $(`<div id="html_65dfdcc0de800c409f8c205451b29e2c" style="width: 100.0%; height: 100.0%;">ID: 11<br>Country: Islande<br>Continent: Europe<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 510 A + 403 B</div>`)[0];
+                popup_12629468cfd0c3ef54a2056ad53bc219.setContent(html_65dfdcc0de800c409f8c205451b29e2c);
+            
+        
+
+        circle_marker_8597d81c0ad8f6e191d213c8711a546b.bindPopup(popup_12629468cfd0c3ef54a2056ad53bc219)
+        ;
+
+        
+    
+    
+            var circle_marker_e3691ef81f3042da15a581f11d93ccde = L.circleMarker(
+                [40.0912813, 9.0305773],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_c8c8f215ace4a25573653a6a30bb8e98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_46f5b5e11f3ff6a42cebd6727832533a = $(`<div id="html_46f5b5e11f3ff6a42cebd6727832533a" style="width: 100.0%; height: 100.0%;">ID: 12<br>Country: Italie (Sardaigne)<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 510 A</div>`)[0];
+                popup_c8c8f215ace4a25573653a6a30bb8e98.setContent(html_46f5b5e11f3ff6a42cebd6727832533a);
+            
+        
+
+        circle_marker_e3691ef81f3042da15a581f11d93ccde.bindPopup(popup_c8c8f215ace4a25573653a6a30bb8e98)
+        ;
+
+        
+    
+    
+            var circle_marker_66c8ad1a27f6c299939d43c755a981dd = L.circleMarker(
+                [45.65713555, -78.49953864045284],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_5f40f7f4340e0245250c58b24857ad4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_37210615e3a24a6e63cfd46cc518b0d4 = $(`<div id="html_37210615e3a24a6e63cfd46cc518b0d4" style="width: 100.0%; height: 100.0%;">ID: 13<br>Country: Canada (Algonquin)<br>Continent: Amérique<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_5f40f7f4340e0245250c58b24857ad4e.setContent(html_37210615e3a24a6e63cfd46cc518b0d4);
+            
+        
+
+        circle_marker_66c8ad1a27f6c299939d43c755a981dd.bindPopup(popup_5f40f7f4340e0245250c58b24857ad4e)
+        ;
+
+        
+    
+    
+            var circle_marker_5e11a2130612aed9cd42aed1d81a29e0 = L.circleMarker(
+                [46.500283, -66.750183],
+                {"bubblingMouseEvents": true, "color": "#0072B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_e9402e376780ecab4cc2bb2c55b09a52 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6445e372b0496c92e9b80689570357d3 = $(`<div id="html_6445e372b0496c92e9b80689570357d3" style="width: 100.0%; height: 100.0%;">ID: 14<br>Country: Canada (Nouveau-Brunswick)<br>Continent: Amérique<br>HDBSCAN_Cluster: Blue<br>Agglomerative cluster: Blue<br>ATU Types: 510 A</div>`)[0];
+                popup_e9402e376780ecab4cc2bb2c55b09a52.setContent(html_6445e372b0496c92e9b80689570357d3);
+            
+        
+
+        circle_marker_5e11a2130612aed9cd42aed1d81a29e0.bindPopup(popup_e9402e376780ecab4cc2bb2c55b09a52)
+        ;
+
+        
+    
+    
+            var circle_marker_de155e150b9b9f7d4abd944e77bb8b0e = L.circleMarker(
+                [44.5866205901932, 11.423434150597357],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_c5568d4ba7ca89d73156989e1faefb5c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c686f0a5e6f872cc05f7c20f1355f080 = $(`<div id="html_c686f0a5e6f872cc05f7c20f1355f080" style="width: 100.0%; height: 100.0%;">ID: 15<br>Country: Italie (I. Calvino)<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_c5568d4ba7ca89d73156989e1faefb5c.setContent(html_c686f0a5e6f872cc05f7c20f1355f080);
+            
+        
+
+        circle_marker_de155e150b9b9f7d4abd944e77bb8b0e.bindPopup(popup_c5568d4ba7ca89d73156989e1faefb5c)
+        ;
+
+        
+    
+    
+            var circle_marker_60293999a6471ca9d819818e0a20f2fd = L.circleMarker(
+                [35.0693961, -108.84939],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_63d4339451f3e6b44ca0746cccd93f7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_23754657c0e4469a136d9221a1e59bce = $(`<div id="html_23754657c0e4469a136d9221a1e59bce" style="width: 100.0%; height: 100.0%;">ID: 16<br>Country: Indiens Zuñi<br>Continent: Amérique<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_63d4339451f3e6b44ca0746cccd93f7c.setContent(html_23754657c0e4469a136d9221a1e59bce);
+            
+        
+
+        circle_marker_60293999a6471ca9d819818e0a20f2fd.bindPopup(popup_63d4339451f3e6b44ca0746cccd93f7c)
+        ;
+
+        
+    
+    
+            var circle_marker_cf4329d13f6db9b3264a5c9aabc3842c = L.circleMarker(
+                [38.9953683, 21.9927132],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_10a99d0ace8969aa278a64fd8a2173e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe971e71dbfc81797521515d8b70df4b = $(`<div id="html_fe971e71dbfc81797521515d8b70df4b" style="width: 100.0%; height: 100.0%;">ID: 17<br>Country: Grèce<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 480 + 510 A</div>`)[0];
+                popup_10a99d0ace8969aa278a64fd8a2173e3.setContent(html_fe971e71dbfc81797521515d8b70df4b);
+            
+        
+
+        circle_marker_cf4329d13f6db9b3264a5c9aabc3842c.bindPopup(popup_10a99d0ace8969aa278a64fd8a2173e3)
+        ;
+
+        
+    
+    
+            var circle_marker_1bee8ad4ea8fb8453657448a6c9526ec = L.circleMarker(
+                [47.5436072, 0.317965],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_1bfb6a3617bddfd25bd42f91e3500d85 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f2c640e91dc11434a10af2a48630b295 = $(`<div id="html_f2c640e91dc11434a10af2a48630b295" style="width: 100.0%; height: 100.0%;">ID: 18<br>Country: France (Basse-Bretagne)<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Purple<br>ATU Types: 510 A + 403 B</div>`)[0];
+                popup_1bfb6a3617bddfd25bd42f91e3500d85.setContent(html_f2c640e91dc11434a10af2a48630b295);
+            
+        
+
+        circle_marker_1bee8ad4ea8fb8453657448a6c9526ec.bindPopup(popup_1bfb6a3617bddfd25bd42f91e3500d85)
+        ;
+
+        
+    
+    
+            var circle_marker_1f33176462676eac4cb775f9087b2006 = L.circleMarker(
+                [-2.9814344, 23.8222636],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_411240a7d38f3d0554e198a0767250fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de7600a83071f859285e5d432089b669 = $(`<div id="html_de7600a83071f859285e5d432089b669" style="width: 100.0%; height: 100.0%;">ID: 19<br>Country: Zaïre (Congo)<br>Continent: Afrique<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_411240a7d38f3d0554e198a0767250fb.setContent(html_de7600a83071f859285e5d432089b669);
+            
+        
+
+        circle_marker_1f33176462676eac4cb775f9087b2006.bindPopup(popup_411240a7d38f3d0554e198a0767250fb)
+        ;
+
+        
+    
+    
+            var circle_marker_28217c7be4e817e4aa535f9ea2f5915f = L.circleMarker(
+                [42.188089649999995, 9.073413771427695],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_602fc62b30849ef1459613931ea6d794 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_537336ebcdacc62a0ff0831d0b9bcca1 = $(`<div id="html_537336ebcdacc62a0ff0831d0b9bcca1" style="width: 100.0%; height: 100.0%;">ID: 20<br>Country: France (Corse)<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_602fc62b30849ef1459613931ea6d794.setContent(html_537336ebcdacc62a0ff0831d0b9bcca1);
+            
+        
+
+        circle_marker_28217c7be4e817e4aa535f9ea2f5915f.bindPopup(popup_602fc62b30849ef1459613931ea6d794)
+        ;
+
+        
+    
+    
+            var circle_marker_51eff3849cb1d3f343fc8664358e64c5 = L.circleMarker(
+                [38.99563001632419, 21.99370748932949],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_493c871bb9ccd8232c7cb6113ee98de1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d8c8dbe86708caa37f6a5f79cb128455 = $(`<div id="html_d8c8dbe86708caa37f6a5f79cb128455" style="width: 100.0%; height: 100.0%;">ID: 21<br>Country: Grèce<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_493c871bb9ccd8232c7cb6113ee98de1.setContent(html_d8c8dbe86708caa37f6a5f79cb128455);
+            
+        
+
+        circle_marker_51eff3849cb1d3f343fc8664358e64c5.bindPopup(popup_493c871bb9ccd8232c7cb6113ee98de1)
+        ;
+
+        
+    
+    
+            var circle_marker_d4791ce6958c80b2a835e2b44d8f4c44 = L.circleMarker(
+                [42.188351366324184, 9.074408060757186],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_abd599c8ef757179aa9740e20043912f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_237584139acbefc1f35d131ea796199c = $(`<div id="html_237584139acbefc1f35d131ea796199c" style="width: 100.0%; height: 100.0%;">ID: 22<br>Country: France (Corse)<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Purple<br>ATU Types: 480 + 510 A</div>`)[0];
+                popup_abd599c8ef757179aa9740e20043912f.setContent(html_237584139acbefc1f35d131ea796199c);
+            
+        
+
+        circle_marker_d4791ce6958c80b2a835e2b44d8f4c44.bindPopup(popup_abd599c8ef757179aa9740e20043912f)
+        ;
+
+        
+    
+    
+            var circle_marker_52d60e2d93b453e179d16c28565fbee1 = L.circleMarker(
+                [47.118711, 4.9691044],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_77121edb7d4702441bb6e383ca959172 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c4b6677390324eefa72a0d15a776dd1 = $(`<div id="html_1c4b6677390324eefa72a0d15a776dd1" style="width: 100.0%; height: 100.0%;">ID: 23<br>Country: France (Nivernais, Morvan)<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 480 + 510 A</div>`)[0];
+                popup_77121edb7d4702441bb6e383ca959172.setContent(html_1c4b6677390324eefa72a0d15a776dd1);
+            
+        
+
+        circle_marker_52d60e2d93b453e179d16c28565fbee1.bindPopup(popup_77121edb7d4702441bb6e383ca959172)
+        ;
+
+        
+    
+    
+            var circle_marker_463b3a94b03d3a3d907d8d05ae49014b = L.circleMarker(
+                [52.4760892, -71.8258668],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_bc3e7a4a851c0df2a229431045808f77 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_933fe6236c2acc77d6df485dd606b15b = $(`<div id="html_933fe6236c2acc77d6df485dd606b15b" style="width: 100.0%; height: 100.0%;">ID: 24<br>Country: Québec<br>Continent: Amérique<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_bc3e7a4a851c0df2a229431045808f77.setContent(html_933fe6236c2acc77d6df485dd606b15b);
+            
+        
+
+        circle_marker_463b3a94b03d3a3d907d8d05ae49014b.bindPopup(popup_bc3e7a4a851c0df2a229431045808f77)
+        ;
+
+        
+    
+    
+            var circle_marker_075fc94bad712cd1bd20e6d0a80228fd = L.circleMarker(
+                [26.2540493, 29.2675469],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_7f3d66e630976e8b5b29faa8e92ce2e8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28e57892e9cf6bada9cb992b20c1a31b = $(`<div id="html_28e57892e9cf6bada9cb992b20c1a31b" style="width: 100.0%; height: 100.0%;">ID: 25<br>Country: Égypte<br>Continent: Afrique<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_7f3d66e630976e8b5b29faa8e92ce2e8.setContent(html_28e57892e9cf6bada9cb992b20c1a31b);
+            
+        
+
+        circle_marker_075fc94bad712cd1bd20e6d0a80228fd.bindPopup(popup_7f3d66e630976e8b5b29faa8e92ce2e8)
+        ;
+
+        
+    
+    
+            var circle_marker_e68d4c7f0a6f1db0c83fbf7f131cae10 = L.circleMarker(
+                [45.4039367, 0.3756199],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_f639433ad8e3b8911a53bca279b871b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8bb2861bd6b438f05796a36aced8e87d = $(`<div id="html_8bb2861bd6b438f05796a36aced8e87d" style="width: 100.0%; height: 100.0%;">ID: 26<br>Country: France (poitou)<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_f639433ad8e3b8911a53bca279b871b7.setContent(html_8bb2861bd6b438f05796a36aced8e87d);
+            
+        
+
+        circle_marker_e68d4c7f0a6f1db0c83fbf7f131cae10.bindPopup(popup_f639433ad8e3b8911a53bca279b871b7)
+        ;
+
+        
+    
+    
+            var circle_marker_367612a33d057c326d06b6b23fb79d6d = L.circleMarker(
+                [47.57124705, -73.20309134761297],
+                {"bubblingMouseEvents": true, "color": "#0072B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_d3ceeefa7e73e838c896df28b4aa9a36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ecf1a41e4dd426f9ddf196efb12c89fb = $(`<div id="html_ecf1a41e4dd426f9ddf196efb12c89fb" style="width: 100.0%; height: 100.0%;">ID: 27<br>Country: La Mauricie<br>Continent: Amérique<br>HDBSCAN_Cluster: Blue<br>Agglomerative cluster: Purple<br>ATU Types: 510 A</div>`)[0];
+                popup_d3ceeefa7e73e838c896df28b4aa9a36.setContent(html_ecf1a41e4dd426f9ddf196efb12c89fb);
+            
+        
+
+        circle_marker_367612a33d057c326d06b6b23fb79d6d.bindPopup(popup_d3ceeefa7e73e838c896df28b4aa9a36)
+        ;
+
+        
+    
+    
+            var circle_marker_b8a48e07f52b758ce88a0cecb4e227b0 = L.circleMarker(
+                [52.5310214, -1.2649062],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_4a7a5f845f5a3f56194ac901e8dda301 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1591c73cd7b0936e4e765fe312d735f5 = $(`<div id="html_1591c73cd7b0936e4e765fe312d735f5" style="width: 100.0%; height: 100.0%;">ID: 28<br>Country: Angleterre (C. Dickens)<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_4a7a5f845f5a3f56194ac901e8dda301.setContent(html_1591c73cd7b0936e4e765fe312d735f5);
+            
+        
+
+        circle_marker_b8a48e07f52b758ce88a0cecb4e227b0.bindPopup(popup_4a7a5f845f5a3f56194ac901e8dda301)
+        ;
+
+        
+    
+    
+            var circle_marker_54ab53e4ed0b0f02df242254fec9bfe3 = L.circleMarker(
+                [35.0000663, 104.999955],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_a78a7a32e6e4a48c0777bff6f98041a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd794398f5517ee847b33d1ff80784f6 = $(`<div id="html_dd794398f5517ee847b33d1ff80784f6" style="width: 100.0%; height: 100.0%;">ID: 29<br>Country: Chine<br>Continent: Asie<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_a78a7a32e6e4a48c0777bff6f98041a2.setContent(html_dd794398f5517ee847b33d1ff80784f6);
+            
+        
+
+        circle_marker_54ab53e4ed0b0f02df242254fec9bfe3.bindPopup(popup_a78a7a32e6e4a48c0777bff6f98041a2)
+        ;
+
+        
+    
+    
+            var circle_marker_651b129d0b56f89a063a9bc0b077ee8b = L.circleMarker(
+                [38.995978390199234, 21.994686562886645],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_c382e113e91503c05d9f277a34c447f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f63601c2767c6b39ff1718c158fcad56 = $(`<div id="html_f63601c2767c6b39ff1718c158fcad56" style="width: 100.0%; height: 100.0%;">ID: 30<br>Country: Grèce<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_c382e113e91503c05d9f277a34c447f6.setContent(html_f63601c2767c6b39ff1718c158fcad56);
+            
+        
+
+        circle_marker_651b129d0b56f89a063a9bc0b077ee8b.bindPopup(popup_c382e113e91503c05d9f277a34c447f6)
+        ;
+
+        
+    
+    
+            var circle_marker_837d8e2f194f499133c072003c855731 = L.circleMarker(
+                [42.638687816324186, 12.68029128932949],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_423db307689c633bb188f98680154c47 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be011804a2cecb873d332ae378389ad6 = $(`<div id="html_be011804a2cecb873d332ae378389ad6" style="width: 100.0%; height: 100.0%;">ID: 31<br>Country: Italie<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_423db307689c633bb188f98680154c47.setContent(html_be011804a2cecb873d332ae378389ad6);
+            
+        
+
+        circle_marker_837d8e2f194f499133c072003c855731.bindPopup(popup_423db307689c633bb188f98680154c47)
+        ;
+
+        
+    
+    
+            var circle_marker_30292a109483c35b8b7e4bb991473deb = L.circleMarker(
+                [39.3260685, -4.8379791],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_59a194a75cfad60aea7fbb9874fc2ff5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa3710466f19d62f3d4616000c9125a1 = $(`<div id="html_aa3710466f19d62f3d4616000c9125a1" style="width: 100.0%; height: 100.0%;">ID: 32<br>Country: Espagne<br>Continent: Europe<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 480 + 510A + 403A</div>`)[0];
+                popup_59a194a75cfad60aea7fbb9874fc2ff5.setContent(html_aa3710466f19d62f3d4616000c9125a1);
+            
+        
+
+        circle_marker_30292a109483c35b8b7e4bb991473deb.bindPopup(popup_59a194a75cfad60aea7fbb9874fc2ff5)
+        ;
+
+        
+    
+    
+            var circle_marker_5c1609fa7b7b815b8e63f05769214ad3 = L.circleMarker(
+                [42.63903619019923, 12.681270362886641],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_863fbb145cb033ca13b7dea33180a05b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f95035f15ac9e3ddd5b73ba6cf6e274 = $(`<div id="html_7f95035f15ac9e3ddd5b73ba6cf6e274" style="width: 100.0%; height: 100.0%;">ID: 33<br>Country: Italie<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 510 B</div>`)[0];
+                popup_863fbb145cb033ca13b7dea33180a05b.setContent(html_7f95035f15ac9e3ddd5b73ba6cf6e274);
+            
+        
+
+        circle_marker_5c1609fa7b7b815b8e63f05769214ad3.bindPopup(popup_863fbb145cb033ca13b7dea33180a05b)
+        ;
+
+        
+    
+    
+            var circle_marker_23b36a62992a921e69ff045aa30a0132 = L.circleMarker(
+                [38.99641250953776, 21.995644758890993],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_54766788bba2751d24882d1c0e48286d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84c7252ef428383c8c60707e9105d963 = $(`<div id="html_84c7252ef428383c8c60707e9105d963" style="width: 100.0%; height: 100.0%;">ID: 34<br>Country: Grèce<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 510 A + 403 B</div>`)[0];
+                popup_54766788bba2751d24882d1c0e48286d.setContent(html_84c7252ef428383c8c60707e9105d963);
+            
+        
+
+        circle_marker_23b36a62992a921e69ff045aa30a0132.bindPopup(popup_54766788bba2751d24882d1c0e48286d)
+        ;
+
+        
+    
+    
+            var circle_marker_3edffe04b3c2a7a8a41cac1afc4728f4 = L.circleMarker(
+                [36.2773442, 4.703196293155502],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_e992560a4140063a4e902c356f696ca0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d1d92878dc7959bde95fe5f66c73a5c = $(`<div id="html_3d1d92878dc7959bde95fe5f66c73a5c" style="width: 100.0%; height: 100.0%;">ID: 35<br>Country: Kabylie<br>Continent: Afrique<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Gold<br>ATU Types: 511 + 403 B</div>`)[0];
+                popup_e992560a4140063a4e902c356f696ca0.setContent(html_3d1d92878dc7959bde95fe5f66c73a5c);
+            
+        
+
+        circle_marker_3edffe04b3c2a7a8a41cac1afc4728f4.bindPopup(popup_e992560a4140063a4e902c356f696ca0)
+        ;
+
+        
+    
+    
+            var circle_marker_7f1909035dffca292905a37e795e7d2d = L.circleMarker(
+                [47.904700500000004, -1.917241370789751],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_9a629ad31ccc696bf7acf913d27cc82a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fc4b8ff34f919354742b902e7aa2f8e = $(`<div id="html_0fc4b8ff34f919354742b902e7aa2f8e" style="width: 100.0%; height: 100.0%;">ID: 36<br>Country: France (Haute-Bretagne)<br>Continent: Europe<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 511 B + 510 B</div>`)[0];
+                popup_9a629ad31ccc696bf7acf913d27cc82a.setContent(html_0fc4b8ff34f919354742b902e7aa2f8e);
+            
+        
+
+        circle_marker_7f1909035dffca292905a37e795e7d2d.bindPopup(popup_9a629ad31ccc696bf7acf913d27cc82a)
+        ;
+
+        
+    
+    
+            var circle_marker_c52aae10d9479e9d2c545f3aba7dfbe1 = L.circleMarker(
+                [47.8864944, 1.9099659],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_09e390343745d59a12f316ff25efa147 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5caaff4062e76ad93bad0e2db875d2d3 = $(`<div id="html_5caaff4062e76ad93bad0e2db875d2d3" style="width: 100.0%; height: 100.0%;">ID: 37<br>Country: France (Loire)<br>Continent: Europe<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Purple<br>ATU Types: 480 + 510 A</div>`)[0];
+                popup_09e390343745d59a12f316ff25efa147.setContent(html_5caaff4062e76ad93bad0e2db875d2d3);
+            
+        
+
+        circle_marker_c52aae10d9479e9d2c545f3aba7dfbe1.bindPopup(popup_09e390343745d59a12f316ff25efa147)
+        ;
+
+        
+    
+    
+            var circle_marker_84fb4fcd7bf38a41ec869a2f08e61559 = L.circleMarker(
+                [28.3347722, -10.371337908392647],
+                {"bubblingMouseEvents": true, "color": "#E69F00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E69F00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_57fb3292fb8dfa6aa410d89fb975d269 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c66c72a45cf57641a4aaad2e4509edba = $(`<div id="html_c66c72a45cf57641a4aaad2e4509edba" style="width: 100.0%; height: 100.0%;">ID: 38<br>Country: Maroc<br>Continent: Afrique<br>HDBSCAN_Cluster: Orange<br>Agglomerative cluster: Gold<br>ATU Types: 510 A</div>`)[0];
+                popup_57fb3292fb8dfa6aa410d89fb975d269.setContent(html_c66c72a45cf57641a4aaad2e4509edba);
+            
+        
+
+        circle_marker_84fb4fcd7bf38a41ec869a2f08e61559.bindPopup(popup_57fb3292fb8dfa6aa410d89fb975d269)
+        ;
+
+        
+    
+    
+            var circle_marker_8de698680259caffb6380bbb082eff75 = L.circleMarker(
+                [36.5748441, 139.2394179],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_5ab1c9d1fc0decf2b0b71b6a91776824 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d19109e858327735d94f80a87a3ac178 = $(`<div id="html_d19109e858327735d94f80a87a3ac178" style="width: 100.0%; height: 100.0%;">ID: 39<br>Country: Japon<br>Continent: Asie<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Purple<br>ATU Types: 510A</div>`)[0];
+                popup_5ab1c9d1fc0decf2b0b71b6a91776824.setContent(html_d19109e858327735d94f80a87a3ac178);
+            
+        
+
+        circle_marker_8de698680259caffb6380bbb082eff75.bindPopup(popup_5ab1c9d1fc0decf2b0b71b6a91776824)
+        ;
+
+        
+    
+    
+            var circle_marker_87edba86b9a6fa7e692fae3f4a519410 = L.circleMarker(
+                [48.2640814, 12.884868532866667],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_fe0adb78b7f5e4148bb939150815d836 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd460176506f08ce8c52c877de263e71 = $(`<div id="html_fd460176506f08ce8c52c877de263e71" style="width: 100.0%; height: 100.0%;">ID: 40<br>Country: Allemagne Grimm<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 510A</div>`)[0];
+                popup_fe0adb78b7f5e4148bb939150815d836.setContent(html_fd460176506f08ce8c52c877de263e71);
+            
+        
+
+        circle_marker_87edba86b9a6fa7e692fae3f4a519410.bindPopup(popup_fe0adb78b7f5e4148bb939150815d836)
+        ;
+
+        
+    
+    
+            var circle_marker_d2c1c8eda8ed73b1f3435a12453da726 = L.circleMarker(
+                [38.7604815, -92.5617875],
+                {"bubblingMouseEvents": true, "color": "#0072B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_d68fc0fe9ce19becdfbd1440beef6bfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36b5f0206e9352de88d199fee5565de4 = $(`<div id="html_36b5f0206e9352de88d199fee5565de4" style="width: 100.0%; height: 100.0%;">ID: 41<br>Country: Missouri<br>Continent: Amérique<br>HDBSCAN_Cluster: Blue<br>Agglomerative cluster: Blue<br>ATU Types: 510A</div>`)[0];
+                popup_d68fc0fe9ce19becdfbd1440beef6bfb.setContent(html_36b5f0206e9352de88d199fee5565de4);
+            
+        
+
+        circle_marker_d2c1c8eda8ed73b1f3435a12453da726.bindPopup(popup_d68fc0fe9ce19becdfbd1440beef6bfb)
+        ;
+
+        
+    
+    
+            var circle_marker_d669077c925eeef4509938c1ab2abd40 = L.circleMarker(
+                [55.670249, 10.3333283],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_a2e0cd8d752139cebda23a160bd4bdd2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c2359c71e4ab386ca55238055d0899e3 = $(`<div id="html_c2359c71e4ab386ca55238055d0899e3" style="width: 100.0%; height: 100.0%;">ID: 42<br>Country: Danemark<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 510A</div>`)[0];
+                popup_a2e0cd8d752139cebda23a160bd4bdd2.setContent(html_c2359c71e4ab386ca55238055d0899e3);
+            
+        
+
+        circle_marker_d669077c925eeef4509938c1ab2abd40.bindPopup(popup_a2e0cd8d752139cebda23a160bd4bdd2)
+        ;
+
+        
+    
+    
+            var circle_marker_ef0567d46f1999ac029e7f1bc1a5a05a = L.circleMarker(
+                [45.4039367, 0.3756199],
+                {"bubblingMouseEvents": true, "color": "#0072B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_57975eb20a7043a0b863304e5bd1e8eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f703937f07c113ddd23d14687444008f = $(`<div id="html_f703937f07c113ddd23d14687444008f" style="width: 100.0%; height: 100.0%;">ID: 43<br>Country: Bas-Poitou<br>Continent: Europe<br>HDBSCAN_Cluster: Blue<br>Agglomerative cluster: Blue<br>ATU Types: 510A</div>`)[0];
+                popup_57975eb20a7043a0b863304e5bd1e8eb.setContent(html_f703937f07c113ddd23d14687444008f);
+            
+        
+
+        circle_marker_ef0567d46f1999ac029e7f1bc1a5a05a.bindPopup(popup_57975eb20a7043a0b863304e5bd1e8eb)
+        ;
+
+        
+    
+    
+            var circle_marker_357d208cdcb403342d76d37f269f9731 = L.circleMarker(
+                [16.2528827, -61.5686855],
+                {"bubblingMouseEvents": true, "color": "#999999", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#999999", "fillOpacity": 0.5, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_614595f86747b37a20af2d76fed3f1df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c09d34ea2ca81f6c049e750f516ee75a = $(`<div id="html_c09d34ea2ca81f6c049e750f516ee75a" style="width: 100.0%; height: 100.0%;">ID: 44<br>Country: Guadeloupe<br>Continent: Amérique<br>HDBSCAN_Cluster: Noise<br>Agglomerative cluster: Gold<br>ATU Types: 510A</div>`)[0];
+                popup_614595f86747b37a20af2d76fed3f1df.setContent(html_c09d34ea2ca81f6c049e750f516ee75a);
+            
+        
+
+        circle_marker_357d208cdcb403342d76d37f269f9731.bindPopup(popup_614595f86747b37a20af2d76fed3f1df)
+        ;
+
+        
+    
+    
+            var circle_marker_607f56923aee585a2443623af5604dbd = L.circleMarker(
+                [50.0018022, 2.6509223],
+                {"bubblingMouseEvents": true, "color": "#CC79A7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#CC79A7", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_5e85fc0912b659e68e1457c4f4dafc8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1e62f126278c678ee73b1a9e7408c9e5 = $(`<div id="html_1e62f126278c678ee73b1a9e7408c9e5" style="width: 100.0%; height: 100.0%;">ID: 45<br>Country: France Albert<br>Continent: Europe<br>HDBSCAN_Cluster: Purple<br>Agglomerative cluster: Purple<br>ATU Types: 510A</div>`)[0];
+                popup_5e85fc0912b659e68e1457c4f4dafc8f.setContent(html_1e62f126278c678ee73b1a9e7408c9e5);
+            
+        
+
+        circle_marker_607f56923aee585a2443623af5604dbd.bindPopup(popup_5e85fc0912b659e68e1457c4f4dafc8f)
+        ;
+
+        
+    
+    
+            var circle_marker_95e4329cbaf0e358a4ac0a8d42c52998 = L.circleMarker(
+                [48.26434311632419, 12.885862822196158],
+                {"bubblingMouseEvents": true, "color": "#009E73", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#009E73", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_d026a1d5fba112b755b264c3675a967a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b255fe2f786c6ce04ee089caa944f83e = $(`<div id="html_b255fe2f786c6ce04ee089caa944f83e" style="width: 100.0%; height: 100.0%;">ID: 46<br>Country: Allemagne Grimm<br>Continent: Europe<br>HDBSCAN_Cluster: Green<br>Agglomerative cluster: Gold<br>ATU Types: 511</div>`)[0];
+                popup_d026a1d5fba112b755b264c3675a967a.setContent(html_b255fe2f786c6ce04ee089caa944f83e);
+            
+        
+
+        circle_marker_95e4329cbaf0e358a4ac0a8d42c52998.bindPopup(popup_d026a1d5fba112b755b264c3675a967a)
+        ;
+
+        
+    
+    
+            var circle_marker_4dad504182063b71e783daef0dd17cc8 = L.circleMarker(
+                [47.571508766324186, -73.20209705828347],
+                {"bubblingMouseEvents": true, "color": "#0072B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0072B2", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_69885976b5a1ade2ee615be47e7466b8);
+        
+    
+        var popup_4311013d4686f3b8d5d9a0ad7398c136 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f538fad6bb0fb8ea18258b5b222cff4c = $(`<div id="html_f538fad6bb0fb8ea18258b5b222cff4c" style="width: 100.0%; height: 100.0%;">ID: 47<br>Country: La Mauricie<br>Continent: Amérique<br>HDBSCAN_Cluster: Blue<br>Agglomerative cluster: Blue<br>ATU Types: 510A</div>`)[0];
+                popup_4311013d4686f3b8d5d9a0ad7398c136.setContent(html_f538fad6bb0fb8ea18258b5b222cff4c);
+            
+        
+
+        circle_marker_4dad504182063b71e783daef0dd17cc8.bindPopup(popup_4311013d4686f3b8d5d9a0ad7398c136)
+        ;
+
+        
+    
+</script>
+</html>
